@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "UnrealSharp": {
+      "commandName": "Executable",
+      "executablePath": "D:/EGame/UE_5.5/Engine/Binaries\\Win64\\UnrealEditor.exe",
+      "commandLineArgs": "\"D:\\UEProject\\FinProject\\TeamProject\\TeamProject.uproject\""
+    }
+  }
+}
