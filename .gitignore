@@ -12,3 +12,11 @@ Build
 *.suo
 *.xcodeproj
 *.xcworkspace
+
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+*.VC.opendb
+*.VC.opendb-shm
+*.VC.opendb-wal
+*.VC.opendb-lock
