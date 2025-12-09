@@ -1,0 +1,14 @@
+DerivedDataCache
+Intermediate
+Saved
+Build
+
+.vscode
+.vs
+*.VC.bd
+*.opensdf
+*.openbd
+*.sdf
+*.suo
+*.xcodeproj
+*.xcworkspace
