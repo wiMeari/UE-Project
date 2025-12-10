@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj": {}
+    "D:\\UEProject\\Test\\UE-Project\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj": {}
   },
   "projects": {
-    "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj": {
+    "D:\\UEProject\\Test\\UE-Project\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj",
+        "projectUniqueName": "D:\\UEProject\\Test\\UE-Project\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj",
         "projectName": "ManagedTeamProject",
-        "projectPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj",
+        "projectPath": "D:\\UEProject\\Test\\UE-Project\\Script\\ManagedTeamProject\\ManagedTeamProject.csproj",
         "packagesPath": "C:\\Users\\qipa不奇葩\\.nuget\\packages\\",
-        "outputPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\obj\\",
+        "outputPath": "D:\\UEProject\\Test\\UE-Project\\Script\\ManagedTeamProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\vs\\tool\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj": {
-                "projectPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj"
+              "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj": {
+                "projectPath": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj": {
+    "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
+        "projectUniqueName": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
         "projectName": "TeamProject.Glue",
-        "projectPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
+        "projectPath": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
         "packagesPath": "C:\\Users\\qipa不奇葩\\.nuget\\packages\\",
-        "outputPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\obj\\",
+        "outputPath": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\vs\\tool\\NuGetPackages"
