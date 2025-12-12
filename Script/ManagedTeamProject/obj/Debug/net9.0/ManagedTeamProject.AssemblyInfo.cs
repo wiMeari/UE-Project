@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManagedTeamProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63451321167190944bdbbe631be4340eee8d628c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad644ae94342f0e7ea05367a92c8475fc0f36401")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManagedTeamProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManagedTeamProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
+      "projectUniqueName": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
       "projectName": "TeamProject.Glue",
-      "projectPath": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
+      "projectPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\TeamProject.Glue.csproj",
       "packagesPath": "C:\\Users\\qipa不奇葩\\.nuget\\packages\\",
-      "outputPath": "D:\\UEProject\\Test\\UE-Project\\Script\\TeamProject.Glue\\obj\\",
+      "outputPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\TeamProject.Glue\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\vs\\tool\\NuGetPackages"

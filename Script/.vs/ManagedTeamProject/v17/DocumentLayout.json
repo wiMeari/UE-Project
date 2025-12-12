@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\UEProject\\FinProject\\TeamProject\\Script\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0707EA38-1503-4475-B0B9-22237CFC951B}|ManagedTeamProject\\ManagedTeamProject.csproj|d:\\ueproject\\finproject\\teamproject\\script\\managedteamproject\\character\\basecharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0707EA38-1503-4475-B0B9-22237CFC951B}|ManagedTeamProject\\ManagedTeamProject.csproj|solutionrelative:managedteamproject\\character\\basecharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0707EA38-1503-4475-B0B9-22237CFC951B}|ManagedTeamProject\\ManagedTeamProject.csproj|d:\\ueproject\\finproject\\teamproject\\script\\managedteamproject\\character\\playercharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0707EA38-1503-4475-B0B9-22237CFC951B}|ManagedTeamProject\\ManagedTeamProject.csproj|solutionrelative:managedteamproject\\character\\playercharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0707EA38-1503-4475-B0B9-22237CFC951B}|ManagedTeamProject\\ManagedTeamProject.csproj|d:\\ueproject\\finproject\\teamproject\\script\\managedteamproject\\controller\\baseplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0707EA38-1503-4475-B0B9-22237CFC951B}|ManagedTeamProject\\ManagedTeamProject.csproj|solutionrelative:managedteamproject\\controller\\baseplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerCharacter.cs",
+              "DocumentMoniker": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\Character\\PlayerCharacter.cs",
+              "RelativeDocumentMoniker": "ManagedTeamProject\\Character\\PlayerCharacter.cs",
+              "ToolTip": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\Character\\PlayerCharacter.cs",
+              "RelativeToolTip": "ManagedTeamProject\\Character\\PlayerCharacter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T15:29:44.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BasePlayerController.cs",
+              "DocumentMoniker": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\Controller\\BasePlayerController.cs",
+              "RelativeDocumentMoniker": "ManagedTeamProject\\Controller\\BasePlayerController.cs",
+              "ToolTip": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\Controller\\BasePlayerController.cs",
+              "RelativeToolTip": "ManagedTeamProject\\Controller\\BasePlayerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T14:56:22.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaseCharacter.cs",
+              "DocumentMoniker": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\Character\\BaseCharacter.cs",
+              "RelativeDocumentMoniker": "ManagedTeamProject\\Character\\BaseCharacter.cs",
+              "ToolTip": "D:\\UEProject\\FinProject\\TeamProject\\Script\\ManagedTeamProject\\Character\\BaseCharacter.cs",
+              "RelativeToolTip": "ManagedTeamProject\\Character\\BaseCharacter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T12:03:46.119Z",
+              "EditorCaption": ""
             }
           ]
         }
