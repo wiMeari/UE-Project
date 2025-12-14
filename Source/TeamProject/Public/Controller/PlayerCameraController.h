@@ -21,8 +21,11 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<ACameraActor> CameraActor;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 	FVector TargetCameraLocation;
+
+	UPROPERTY(BlueprintReadWrite)
+	FRotator TargetCameraRotator;
 
 public:
 

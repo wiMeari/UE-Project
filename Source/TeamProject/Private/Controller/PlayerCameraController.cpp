@@ -3,13 +3,15 @@
 #include "Controller/PlayerCameraController.h"
 #include "Camera/CameraActor.h"
 
-void APlayerCameraController::Tick(float DeltaTime)
-{
-}
-
 void APlayerCameraController::BeginPlay()
 {
 	CameraActor = GetWorld()->SpawnActor<ACameraActor>(CameraActorClass);
-	CameraActor->SetActorLocation(FVector(0.f, 0.f, 0.f));
+	CameraActor->SetActorLocation(TargetCameraLocation);
 	SetViewTarget(CameraActor);
 }
+
+void APlayerCameraController::Tick(float DeltaTime)
+{
+	CameraActor->SetActorLocation(TargetCameraLocation);
+}
+

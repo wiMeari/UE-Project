@@ -8108,82 +8108,6 @@
 		{
 			"Path": "$(ProjectDir)/Binaries/Win64/UnrealEditor-Win64-DebugGame.modules",
 			"Type": "RequiredResource"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpAsync-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpAsync-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpBinds-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpBinds-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpBlueprint-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpBlueprint-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpCompiler-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpCompiler-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpCore-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpCore-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpEditor-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpEditor-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpProcHelper-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpProcHelper-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpRuntimeGlue-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpRuntimeGlue-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpUtilities-Win64-DebugGame.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-UnrealSharpUtilities-Win64-DebugGame.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/Binaries/Win64/UnrealEditor-Win64-DebugGame.modules",
-			"Type": "RequiredResource"
 		}
 	],
 	"RuntimeDependencies": [
@@ -33940,10 +33864,6 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(ProjectDir)/Plugins/UnrealSharp/UnrealSharp.uplugin",
-			"Type": "UFS"
-		},
-		{
 			"Path": "$(ProjectDir)/TeamProject.uproject",
 			"Type": "UFS"
 		}
@@ -34140,7 +34060,6 @@
 		"UVEditor",
 		"UbaController",
 		"UdpMessaging",
-		"UnrealSharp",
 		"VariantManager",
 		"VariantManagerContent",
 		"VisualStudioCodeSourceCodeAccess",
