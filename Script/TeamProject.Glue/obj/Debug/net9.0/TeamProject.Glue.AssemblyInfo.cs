@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeamProject.Glue")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad644ae94342f0e7ea05367a92c8475fc0f36401")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea6ac1b5424b5808b5d3d42bd404689406237f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeamProject.Glue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeamProject.Glue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagedTeamProject.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,11 @@ namespace ManagedTeamProject.Character
     [UClass]
     public class APlayerCharacter : ABaseCharacter
     {
-        [UProperty(PropertyFlags.EditAnywhere)] public UInputAction MoveAction { get; set; }
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Input")] public UInputAction MoveAction { get; set; }
 
-        [UProperty(PropertyFlags.EditAnywhere)] public UInputAction JumpAction { get; set; }
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Input")] public UInputAction JumpAction { get; set; }
 
-        [UProperty(PropertyFlags.EditAnywhere)] public TArray<UInputMappingContext> PlayerMappingContext { get; set; }
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Input")] public TArray<UInputMappingContext> PlayerMappingContext { get; set; }
 
         protected override void BeginPlay()
         {
@@ -48,11 +49,14 @@ namespace ManagedTeamProject.Character
                     EnInputComponent.BindAction(JumpAction, ETriggerEvent.Started, JumpFunc);
                 }
             }
+
         }
 
         public override void Tick(float deltaSeconds)
         {
             base.Tick(deltaSeconds);
+            
+
         }
 
         [UFunction]
@@ -68,7 +72,6 @@ namespace ManagedTeamProject.Character
         [UFunction]
         public void JumpFunc(FInputActionValue value, float _, float _2, UInputAction inputAction)
         {
-
             Jump();
         }
 
