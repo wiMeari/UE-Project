@@ -19,7 +19,9 @@ void AProjPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	TargetLocation = GetCharacter()->GetActorLocation() + TargetLocationOffset;
+	PlayerLocation = GetCharacter()->GetActorLocation();
+
+	TargetLocation = PlayerLocation + TargetLocationOffset;
 
 	if (PlayerCameraController)
 	{

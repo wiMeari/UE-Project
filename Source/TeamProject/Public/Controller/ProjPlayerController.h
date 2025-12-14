@@ -36,6 +36,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	FVector TargetLocationOffset;
 
+	FVector PlayerLocation;
+
 	UPROPERTY(EditAnywhere)
 	FRotator TargetRotator;
 

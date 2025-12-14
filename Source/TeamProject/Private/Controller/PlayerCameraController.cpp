@@ -5,13 +5,22 @@
 
 void APlayerCameraController::BeginPlay()
 {
-	CameraActor = GetWorld()->SpawnActor<ACameraActor>(CameraActorClass);
-	CameraActor->SetActorLocation(TargetCameraLocation);
-	SetViewTarget(CameraActor);
+	Super::BeginPlay();
+
+	PlayerCameraActor = GetWorld()->SpawnActor<ACameraActor>(CameraActorClass);
+	PlayerCameraActor->SetActorLocation(TargetCameraLocation);
+	SetViewTarget(PlayerCameraActor);
 }
 
 void APlayerCameraController::Tick(float DeltaTime)
 {
-	CameraActor->SetActorLocation(TargetCameraLocation);
+	Super::Tick(DeltaTime);
+
+	if (PlayerCameraActor == nullptr && GetWorld())
+	{
+		PlayerCameraActor = GetWorld()->SpawnActor<ACameraActor>(CameraActorClass);
+	}
+
+	PlayerCameraActor->SetActorLocation(TargetCameraLocation);
 }
 

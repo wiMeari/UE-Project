@@ -19,7 +19,7 @@ public:
 	TSubclassOf<ACameraActor> CameraActorClass;
 
 	UPROPERTY(BlueprintReadOnly)
-	TObjectPtr<ACameraActor> CameraActor;
+	TObjectPtr<ACameraActor> PlayerCameraActor;
 
 	UPROPERTY(BlueprintReadWrite)
 	FVector TargetCameraLocation;
