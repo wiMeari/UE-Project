@@ -7,6 +7,7 @@
 #include "PlayerCameraController.generated.h"
 
 class ACameraActor;
+class ATPCharacter;
 
 UCLASS()
 class TEAMPROJECT_API APlayerCameraController : public APlayerCameraManager
@@ -21,16 +22,40 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<ACameraActor> PlayerCameraActor;
 
-	UPROPERTY(BlueprintReadWrite)
-	FVector TargetCameraLocation;
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<ATPCharacter> TPCharacter;
 
 	UPROPERTY(BlueprintReadWrite)
-	FRotator TargetCameraRotator;
+	FVector TargetLocation;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector TargetLocationOffset;
+
+	UPROPERTY(BlueprintReadOnly)
+	FVector PlayerLocation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator TargetRotator;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CameraForwardLenght = 1;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool CanFollow = true;
+
+	UPROPERTY(EditAnywhere)
+	float XYInterpSpeed = 0;
+
+	UPROPERTY(EditAnywhere)
+	float ZInterpSpeed = 0;
 public:
 
 	virtual void Tick(float DeltaTime) override;
 
+
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	void UpdateTargetLocation(bool& retFlag);
 };

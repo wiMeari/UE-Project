@@ -5002,6 +5002,58 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-Chooser.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-Chooser.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ChooserEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ChooserEditor.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ChooserUncooked.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ChooserUncooked.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ProxyTable.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ProxyTable.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ProxyTableEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ProxyTableEditor.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ProxyTableUncooked.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor-ProxyTableUncooked.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/CmdLinkServer/Binaries/Win64/UnrealEditor-CmdLinkServer.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -33176,6 +33228,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Chooser/Chooser.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/CmdLinkServer/CmdLinkServer.uplugin",
 			"Type": "UFS"
 		},
@@ -33912,6 +33968,7 @@
 		"ChaosUserDataPT",
 		"ChaosVD",
 		"CharacterAI",
+		"Chooser",
 		"ChunkDownloader",
 		"CmdLinkServer",
 		"CodeLiteSourceCodeAccess",

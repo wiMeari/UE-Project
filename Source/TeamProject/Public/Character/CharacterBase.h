@@ -13,7 +13,14 @@ class TEAMPROJECT_API ACharacterBase : public ACharacter
 
 public:
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float SprintSpeed;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float RunSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsSprint;
 
 public:
 	// Sets default values for this character's properties

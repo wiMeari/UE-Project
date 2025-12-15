@@ -7,8 +7,10 @@
 #include "ProjPlayerController.generated.h"
 
 class APlayerCameraController;
+class ATPCharacter;
 class UInputMappingContext;
 class UInputAction;
+class UCharacterMovementComponent;
 struct FInputActionValue;
 
 UCLASS()
@@ -25,21 +27,22 @@ public:
 	TObjectPtr<UInputAction> MoveAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	TObjectPtr<UInputAction> SprintAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
 	TObjectPtr<UInputAction> JumpAction;
 
 	UPROPERTY()
 	TObjectPtr<APlayerCameraController> PlayerCameraController;
 
-	UPROPERTY(BlueprintReadWrite)
-	FVector TargetLocation;
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<ATPCharacter> TPCharacter;
 
-	UPROPERTY(EditAnywhere)
-	FVector TargetLocationOffset;
+	UPROPERTY()
+	TObjectPtr<UCharacterMovementComponent> MovementComponent;
 
-	FVector PlayerLocation;
-
-	UPROPERTY(EditAnywhere)
-	FRotator TargetRotator;
+	UPROPERTY(BlueprintReadWrite, Category = "Camera")
+	bool CameraCanFollow = true;
 
 public:
 	virtual void Tick(float DeltaTime) override;
@@ -51,6 +54,10 @@ protected:
 private:
 
 	void MoveFunc(const FInputActionValue& Value);
+
+	void SprintFunc();
+
+	void SprintStopFunc();
 
 	void JumpFunc();
 
