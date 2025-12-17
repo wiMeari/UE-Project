@@ -11,9 +11,14 @@ void APlayerCameraController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerCameraActor = GetWorld()->SpawnActor<ACameraActor>(CameraActorClass);
-	PlayerCameraActor->SetActorLocation(FVector(-600, 1000, 300));
-	SetViewTarget(PlayerCameraActor);
+	PlayerCameraActor = InitializeCameraInSense(CameraActorClass, FString("PlayerCameraActor"));
+	AnotherPlayerCameraActor = InitializeCameraInSense(CameraActorClass, FString("AnotherCameraActor"));
+
+	if (PlayerCameraActor != nullptr)
+	{
+		PlayerCameraActor->SetActorLocation(BeginPlayLocation);
+		SetViewTarget(PlayerCameraActor);
+	}
 }
 
 void APlayerCameraController::Tick(float DeltaTime)
@@ -25,9 +30,7 @@ void APlayerCameraController::Tick(float DeltaTime)
 		PlayerCameraActor = GetWorld()->SpawnActor<ACameraActor>(CameraActorClass);
 	}
 
-	bool retFlag;
-	UpdateTargetLocation(retFlag);
-	if (retFlag) return;
+	UpdateTargetLocation();
 
 	if (CanFollow)
 	{
@@ -40,12 +43,10 @@ void APlayerCameraController::Tick(float DeltaTime)
 	}
 }
 
-void APlayerCameraController::UpdateTargetLocation(bool& retFlag)
+void APlayerCameraController::UpdateTargetLocation()
 {
-	retFlag = true;
-	if (TPCharacter == nullptr) return;
 
-	PlayerLocation = TPCharacter->GetActorLocation();
+	if (TPCharacter == nullptr) return;
 
 	TargetLocation = PlayerLocation + TargetLocationOffset;
 
@@ -53,7 +54,16 @@ void APlayerCameraController::UpdateTargetLocation(bool& retFlag)
 
 	TargetLocation.Y += CameraForwardLenght * PlayerForward;
 
-	//PlayerCameraActor->SetActorLocation(TargetCameraLocation);
-	retFlag = false;
+}
+
+TObjectPtr<ACameraActor> APlayerCameraController::InitializeCameraInSense(TSubclassOf<ACameraActor> TargetClass, const FString& CameraName)
+{
+	TObjectPtr<ACameraActor> InitialTarget = GetWorld()->SpawnActor<ACameraActor>(TargetClass);
+	if (InitialTarget != nullptr)
+	{
+		InitialTarget->SetActorLabel(CameraName);
+		return InitialTarget;
+	}
+	return nullptr;
 }
 

@@ -17,11 +17,14 @@ void AProjPlayerController::BeginPlay()
 	PlayerCameraController = Cast<APlayerCameraController>(PlayerCameraManager);
 	TPCharacter = Cast<ATPCharacter>(GetCharacter());
 	PlayerCameraController->TPCharacter = TPCharacter;
+	PlayerCameraController->PlayerLocation = PlayerLocation = TPCharacter->GetActorLocation();
 }
 
 void AProjPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	PlayerCameraController->PlayerLocation = PlayerLocation = TPCharacter->GetActorLocation();
 
 	if (PlayerCameraController)
 	{

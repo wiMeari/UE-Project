@@ -19,34 +19,40 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ACameraActor> CameraActorClass;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, Category = "CameraActor")
 	TObjectPtr<ACameraActor> PlayerCameraActor;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, Category = "CameraActor")
+	TObjectPtr<ACameraActor> AnotherPlayerCameraActor;
+
+	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperty")
 	TObjectPtr<ATPCharacter> TPCharacter;
 
-	UPROPERTY(BlueprintReadWrite)
-	FVector TargetLocation;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FVector TargetLocationOffset;
-
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperty")
 	FVector PlayerLocation;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "CameraProperty")
+	FVector BeginPlayLocation;
+
+	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
+	FVector TargetLocation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraProperty")
+	FVector TargetLocationOffset;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraProperty")
 	FRotator TargetRotator;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraProperty")
 	float CameraForwardLenght = 1;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
 	bool CanFollow = true;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "CameraProperty")
 	float XYInterpSpeed = 0;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "CameraProperty")
 	float ZInterpSpeed = 0;
 public:
 
@@ -57,5 +63,7 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	void UpdateTargetLocation(bool& retFlag);
+	void UpdateTargetLocation();
+
+	TObjectPtr<ACameraActor> InitializeCameraInSense(TSubclassOf<ACameraActor> TargetClass, const FString &CameraName);
 };

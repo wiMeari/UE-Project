@@ -20,37 +20,43 @@ class TEAMPROJECT_API AProjPlayerController : public APlayerController
 	
 public:
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|MappingContext")
 	TArray<TObjectPtr<UInputMappingContext>> DefaultMappingContexts;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Move")
 	TObjectPtr<UInputAction> MoveAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Move")
 	TObjectPtr<UInputAction> SprintAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Move")
 	TObjectPtr<UInputAction> JumpAction;
 
-	UPROPERTY()
-	TObjectPtr<APlayerCameraController> PlayerCameraController;
-
-	UPROPERTY(BlueprintReadOnly)
-	TObjectPtr<ATPCharacter> TPCharacter;
-
-	UPROPERTY()
-	TObjectPtr<UCharacterMovementComponent> MovementComponent;
-
-	UPROPERTY(BlueprintReadWrite, Category = "Camera")
-	bool CameraCanFollow = true;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Skill")
+	TObjectPtr<UInputAction> SwitchSenseAction;
 
 public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
+
+	UPROPERTY(BlueprintReadOnly, Category = "Camera")
+	TObjectPtr<APlayerCameraController> PlayerCameraController;
+
+	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperty")
+	TObjectPtr<ATPCharacter> TPCharacter;
+
+	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperty")
+	FVector PlayerLocation;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Camera")
+	bool CameraCanFollow = true;
+
+protected:
 	virtual void BeginPlay() override;
 
 	virtual void SetupInputComponent() override;
+
 private:
 
 	void MoveFunc(const FInputActionValue& Value);
