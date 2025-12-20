@@ -8,6 +8,7 @@
 
 class ACameraActor;
 class ATPCharacter;
+class APlayerSceneCapture;
 
 UCLASS()
 class TEAMPROJECT_API APlayerCameraController : public APlayerCameraManager
@@ -49,11 +50,15 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
 	bool CanFollow = true;
 
-	UPROPERTY(EditAnywhere, Category = "CameraProperty")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraProperty")
 	float XYInterpSpeed = 0;
 
-	UPROPERTY(EditAnywhere, Category = "CameraProperty")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraProperty")
 	float ZInterpSpeed = 0;
+
+	UPROPERTY(BlueprintReadWrite, Category = "SceneCapture")
+	TObjectPtr<APlayerSceneCapture> PlayerSceneCaptureActor;
+
 public:
 
 	virtual void Tick(float DeltaTime) override;
@@ -65,5 +70,6 @@ protected:
 private:
 	void UpdateTargetLocation();
 
-	TObjectPtr<ACameraActor> InitializeCameraInSense(TSubclassOf<ACameraActor> TargetClass, const FString &CameraName);
+
+	TObjectPtr<ACameraActor> InitializeActor(TSubclassOf<ACameraActor> TargetClass, const FString &CameraName);
 };

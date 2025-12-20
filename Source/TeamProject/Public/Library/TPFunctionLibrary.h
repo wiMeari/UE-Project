@@ -11,12 +11,13 @@
  */
 UCLASS()
 class TEAMPROJECT_API UTPFunctionLibrary : public UBlueprintFunctionLibrary
-{
+{  
 	GENERATED_BODY()
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = "TPFunctionLibrary")
 	static void SwapPlaces(FVector FirstVector, FVector SecondVector, FVector& OutFirstVector, FVector& OutSecondVector);
 
+	//static FVector CalcAnotherSceneLocation(FVector CurrentLocation, float height);
 };
 

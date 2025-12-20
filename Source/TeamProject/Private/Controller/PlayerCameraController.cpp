@@ -6,13 +6,19 @@
 #include <Character/TPCharacter.h>
 #include "Kismet/KismetSystemLibrary.h"
 #include <Kismet/KismetMathLibrary.h>
+#include "Actor/PlayerSceneCapture.h"
 
 void APlayerCameraController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerCameraActor = InitializeCameraInSense(CameraActorClass, FString("PlayerCameraActor"));
-	AnotherPlayerCameraActor = InitializeCameraInSense(CameraActorClass, FString("AnotherCameraActor"));
+	PlayerCameraActor = InitializeActor(CameraActorClass, FString("PlayerCameraActor"));
+	AnotherPlayerCameraActor = InitializeActor(CameraActorClass, FString("AnotherCameraActor"));
+	
+	if (PlayerSceneCaptureActor != nullptr)
+	{
+		PlayerSceneCaptureActor->SetActorLabel(FString("PlayerSceneCaptureActor"));
+	}
 
 	if (PlayerCameraActor != nullptr)
 	{
@@ -41,6 +47,11 @@ void APlayerCameraController::Tick(float DeltaTime)
 		
 		PlayerCameraActor->SetActorLocation(InterpLocation);
 	}
+
+	if (PlayerSceneCaptureActor)
+	{
+		PlayerSceneCaptureActor->TargetCameraTransform = AnotherPlayerCameraActor->GetActorTransform();
+	}
 }
 
 void APlayerCameraController::UpdateTargetLocation()
@@ -56,7 +67,7 @@ void APlayerCameraController::UpdateTargetLocation()
 
 }
 
-TObjectPtr<ACameraActor> APlayerCameraController::InitializeCameraInSense(TSubclassOf<ACameraActor> TargetClass, const FString& CameraName)
+TObjectPtr<ACameraActor> APlayerCameraController::InitializeActor(TSubclassOf<ACameraActor> TargetClass, const FString& CameraName)
 {
 	TObjectPtr<ACameraActor> InitialTarget = GetWorld()->SpawnActor<ACameraActor>(TargetClass);
 	if (InitialTarget != nullptr)
