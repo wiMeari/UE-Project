@@ -6,12 +6,17 @@
 #include "GameFramework/Character.h"
 #include "CharacterBase.generated.h"
 
+class UNiagaraComponent;
+
 UCLASS()
 class TEAMPROJECT_API ACharacterBase : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UNiagaraComponent* DissolvedEffect;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float SprintSpeed;

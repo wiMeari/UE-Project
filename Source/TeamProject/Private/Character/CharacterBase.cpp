@@ -3,6 +3,7 @@
 
 #include "Character/CharacterBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "NiagaraComponent.h"
 
 // Sets default values
 ACharacterBase::ACharacterBase()
@@ -13,6 +14,8 @@ ACharacterBase::ACharacterBase()
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->SetPlaneConstraintNormal(FVector(1.f, 0.f, 0.f));
 
+	DissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("DissolvedEffect"));
+	DissolvedEffect->SetupAttachment(GetMesh());
 }
 
 // Called when the game starts or when spawned
