@@ -4,7 +4,7 @@
 #include "Character/CharacterBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "NiagaraComponent.h"
-#include "Component/TPAttributeComponent.h"d
+#include "Component/TPAttributeComponent.h"
 
 // Sets default values
 ACharacterBase::ACharacterBase()
