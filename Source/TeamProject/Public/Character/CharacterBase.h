@@ -7,6 +7,7 @@
 #include "CharacterBase.generated.h"
 
 class UNiagaraComponent;
+class UTPAttributeComponent;
 
 UCLASS()
 class TEAMPROJECT_API ACharacterBase : public ACharacter
@@ -15,8 +16,11 @@ class TEAMPROJECT_API ACharacterBase : public ACharacter
 
 public:
 
+	UPROPERTY(VisibleAnywhere	,BlueprintReadWrite)
+	TObjectPtr<UTPAttributeComponent> AttributeComponent;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UNiagaraComponent* DissolvedEffect;
+	TObjectPtr<UNiagaraComponent> DissolvedEffect;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float SprintSpeed;

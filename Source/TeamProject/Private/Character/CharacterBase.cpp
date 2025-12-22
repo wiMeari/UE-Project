@@ -4,6 +4,7 @@
 #include "Character/CharacterBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "NiagaraComponent.h"
+#include "Component/TPAttributeComponent.h"d
 
 // Sets default values
 ACharacterBase::ACharacterBase()
@@ -16,6 +17,8 @@ ACharacterBase::ACharacterBase()
 
 	DissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("DissolvedEffect"));
 	DissolvedEffect->SetupAttachment(GetMesh());
+
+	AttributeComponent = CreateDefaultSubobject<UTPAttributeComponent>(TEXT("AttributeComponent"));
 }
 
 // Called when the game starts or when spawned
