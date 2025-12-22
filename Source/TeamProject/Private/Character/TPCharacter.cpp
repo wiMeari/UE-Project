@@ -3,6 +3,7 @@
 
 #include "Character/TPCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "NiagaraComponent.h"
 
 ATPCharacter::ATPCharacter()
 {
@@ -16,6 +17,12 @@ ATPCharacter::ATPCharacter()
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
+
+	DissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("DissolvedEffect"));
+	DissolvedEffect->SetupAttachment(GetMesh());
+
+	WeaponDissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("WeaponDissolvedEffect"));
+	WeaponDissolvedEffect->SetupAttachment(Weapon);
 }
 
 void ATPCharacter::BeginPlay()

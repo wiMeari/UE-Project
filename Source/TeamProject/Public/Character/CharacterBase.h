@@ -16,11 +16,11 @@ class TEAMPROJECT_API ACharacterBase : public ACharacter
 
 public:
 
-	UPROPERTY(VisibleAnywhere	,BlueprintReadWrite)
-	TObjectPtr<UTPAttributeComponent> AttributeComponent;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	TObjectPtr<UStaticMeshComponent> Weapon;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<UNiagaraComponent> DissolvedEffect;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TObjectPtr<UTPAttributeComponent> AttributeComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float SprintSpeed;

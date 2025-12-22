@@ -4,6 +4,7 @@
 #include "Character/CharacterBase.h"
 #include "TPCharacter.generated.h"
 
+class UNiagaraComponent;
 
 UCLASS()
 class TEAMPROJECT_API ATPCharacter : public ACharacterBase
@@ -12,8 +13,11 @@ class TEAMPROJECT_API ATPCharacter : public ACharacterBase
 
 public:
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UNiagaraComponent> DissolvedEffect;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UNiagaraComponent> WeaponDissolvedEffect;
 public:
 	ATPCharacter();
 
