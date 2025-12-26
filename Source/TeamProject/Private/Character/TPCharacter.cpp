@@ -25,6 +25,11 @@ ATPCharacter::ATPCharacter()
 	WeaponDissolvedEffect->SetupAttachment(Weapon);
 }
 
+void ATPCharacter::Attack_Implementation()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Green, TEXT("ATPCharacter Attack"));
+}
+
 void ATPCharacter::BeginPlay()
 {
 	Super::BeginPlay();

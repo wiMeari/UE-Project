@@ -21,6 +21,10 @@ ACharacterBase::ACharacterBase()
 	Weapon->SetupAttachment(GetMesh(), TEXT("WeaponSocket"));
 }
 
+void ACharacterBase::Attack_Implementation()
+{
+}
+
 // Called when the game starts or when spawned
 void ACharacterBase::BeginPlay()
 {

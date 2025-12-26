@@ -18,8 +18,17 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UNiagaraComponent> WeaponDissolvedEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool IsUp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool IsDown;
+
 public:
 	ATPCharacter();
+
+	virtual void Attack_Implementation() override;
 
 protected:
 	virtual void BeginPlay() override;

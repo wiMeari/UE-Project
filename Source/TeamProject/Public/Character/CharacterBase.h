@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interaction/CombatInterface.h"
 #include "CharacterBase.generated.h"
 
 class UNiagaraComponent;
 class UTPAttributeComponent;
 
 UCLASS()
-class TEAMPROJECT_API ACharacterBase : public ACharacter
+class TEAMPROJECT_API ACharacterBase : public ACharacter, public ICombatInterface
 {
 	GENERATED_BODY()
 
@@ -35,6 +36,7 @@ public:
 	// Sets default values for this character's properties
 	ACharacterBase();
 
+	virtual void Attack_Implementation() override;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

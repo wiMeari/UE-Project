@@ -32,8 +32,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Move")
 	TObjectPtr<UInputAction> JumpAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Skill")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Skill And Attack")
 	TObjectPtr<UInputAction> SwitchSenseAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Skill And Attack")
+	TObjectPtr<UInputAction> AttackAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Direction")
+	TObjectPtr<UInputAction> UpAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Direction")
+	TObjectPtr<UInputAction> DownAction;
+
 
 public:
 	virtual void Tick(float DeltaTime) override;
@@ -57,6 +67,17 @@ protected:
 
 	virtual void SetupInputComponent() override;
 
+	UFUNCTION(BlueprintNativeEvent)
+	void UpFunc();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void UpStopFunc();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void DownFunc();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void DownStopFunc();
 private:
 
 	void MoveFunc(const FInputActionValue& Value);
@@ -66,6 +87,8 @@ private:
 	void SprintStopFunc();
 
 	void JumpFunc();
+
+	void AttackFunc();
 
 	void SetMappingContext(TArray<TObjectPtr<UInputMappingContext>> InputMappingContexts);
 };
