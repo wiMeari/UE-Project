@@ -45,10 +45,10 @@ void AProjPlayerController::SetupInputComponent()
 	EInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AProjPlayerController::MoveFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AProjPlayerController::SprintFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &AProjPlayerController::SprintStopFunc);
-	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc);
-	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc);
-	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc);
-	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc_Implementation);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc_Implementation);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc_Implementation);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc_Implementation);
 	EInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AProjPlayerController::JumpFunc);
 	EInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, &AProjPlayerController::AttackFunc);
 }

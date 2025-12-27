@@ -25,6 +25,23 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool IsDown;
 
+	UPROPERTY(BlueprintReadOnly, Category = "DownTarce")
+	FHitResult HitRes;
+
+	UPROPERTY(BlueprintReadWrite, Category = "DownTarce")
+	bool CanDownAttack;
+
+	UPROPERTY(BlueprintReadWrite, Category = "DownTarce")
+	bool CanLaunchDownAttack;
+
+	UPROPERTY(EditAnywhere, Category = "DownTarce")
+	float DownAttackLength;
+
+	UPROPERTY(EditAnywhere, Category = "DownTarce")
+	float DownLength = 0;
+
+	UPROPERTY(EditAnywhere, Category = "DownTarce")
+	bool ShouldDebug;
 public:
 	ATPCharacter();
 
@@ -35,6 +52,8 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
+
+	void DownLineTrance();
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };

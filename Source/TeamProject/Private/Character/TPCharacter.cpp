@@ -4,6 +4,7 @@
 #include "Character/TPCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "NiagaraComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 ATPCharacter::ATPCharacter()
 {
@@ -50,6 +51,20 @@ void ATPCharacter::Tick(float DeltaTime)
 			GetCharacterMovement()->MaxWalkSpeed = RunSpeed;
 		}
 	}
+
+	DownLineTrance();
+}
+
+void ATPCharacter::DownLineTrance()
+{
+
+	FVector Start = GetActorLocation();
+	FVector End = FVector(GetActorLocation().X, GetActorLocation().Y, GetActorLocation().Z - DownLength);
+
+	TArray<AActor*> ActorToIgnor;
+
+	CanDownAttack = UKismetSystemLibrary::LineTraceSingle(this, Start, End, ETraceTypeQuery::TraceTypeQuery1, false, ActorToIgnor, ShouldDebug ? EDrawDebugTrace::ForOneFrame : EDrawDebugTrace::None, HitRes, true);
+	CanLaunchDownAttack = Start.Z - HitRes.Location.Z < DownAttackLength;
 }
 
 void ATPCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
