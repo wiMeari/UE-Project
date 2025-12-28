@@ -22,8 +22,8 @@ ATPCharacter::ATPCharacter()
 	DissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("DissolvedEffect"));
 	DissolvedEffect->SetupAttachment(GetMesh());
 
-	WeaponDissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("WeaponDissolvedEffect"));
-	WeaponDissolvedEffect->SetupAttachment(Weapon);
+	//WeaponDissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("WeaponDissolvedEffect"));
+	//WeaponDissolvedEffect->SetupAttachment(WeaponMesh);
 }
 
 void ATPCharacter::Attack_Implementation()

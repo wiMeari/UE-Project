@@ -4,7 +4,7 @@
 #include "Character/CharacterBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Component/TPAttributeComponent.h"
-//#include "NiagaraComponent.h"
+#include "Actor/TPWeapon.h"
 
 // Sets default values
 ACharacterBase::ACharacterBase()
@@ -17,8 +17,11 @@ ACharacterBase::ACharacterBase()
 
 	AttributeComponent = CreateDefaultSubobject<UTPAttributeComponent>(TEXT("AttributeComponent"));
 
-	Weapon = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon"));
-	Weapon->SetupAttachment(GetMesh(), TEXT("WeaponSocket"));
+	//WeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponMesh"));
+	//WeaponMesh->SetupAttachment(GetMesh(), TEXT("WeaponSocket"));
+
+	WeaponComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("Weapon"));
+	WeaponComponent->SetupAttachment(GetMesh(), TEXT("WeaponSocket"));
 }
 
 void ACharacterBase::Attack_Implementation()
@@ -30,6 +33,8 @@ void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	/*WeaponComponent->SetChildActorClass(WeaponClass);*/
+
 }
 
 // Called every frame

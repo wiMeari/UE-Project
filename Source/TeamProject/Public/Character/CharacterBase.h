@@ -9,6 +9,7 @@
 
 class UNiagaraComponent;
 class UTPAttributeComponent;
+class ATPWeapon;
 
 UCLASS()
 class TEAMPROJECT_API ACharacterBase : public ACharacter, public ICombatInterface
@@ -17,11 +18,20 @@ class TEAMPROJECT_API ACharacterBase : public ACharacter, public ICombatInterfac
 
 public:
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite)
-	TObjectPtr<UStaticMeshComponent> Weapon;
+	//UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	//TObjectPtr<UStaticMeshComponent> WeaponMesh;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TObjectPtr<UTPAttributeComponent> AttributeComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TObjectPtr<UChildActorComponent> WeaponComponent;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ATPWeapon> WeaponClass;
+
+	//UPROPERTY(BlueprintReadOnly)
+	//TObjectPtr<ATPWeapon> WeaponActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float SprintSpeed;

@@ -16,8 +16,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UNiagaraComponent> DissolvedEffect;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<UNiagaraComponent> WeaponDissolvedEffect;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//TObjectPtr<UNiagaraComponent> WeaponDissolvedEffect;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool IsUp;
