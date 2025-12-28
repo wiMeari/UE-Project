@@ -6,6 +6,7 @@
 #include <EnhancedInputComponent.h>
 #include "GameFramework\Character.h"
 #include "GameFramework\CharacterMovementComponent.h"
+#include "Interaction/CombatInterface.h"
 #include "Character/TPCharacter.h"
 
 void AProjPlayerController::BeginPlay()
@@ -44,7 +45,12 @@ void AProjPlayerController::SetupInputComponent()
 	EInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AProjPlayerController::MoveFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AProjPlayerController::SprintFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &AProjPlayerController::SprintStopFunc);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc_Implementation);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc_Implementation);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc_Implementation);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc_Implementation);
 	EInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AProjPlayerController::JumpFunc);
+	EInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, &AProjPlayerController::AttackFunc);
 }
 
 void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
@@ -76,6 +82,35 @@ void AProjPlayerController::JumpFunc()
 	{
 		GetCharacter()->Jump();
 	}
+}
+
+void AProjPlayerController::AttackFunc()
+{
+	ICombatInterface* CombatInterface = Cast<ICombatInterface>(TPCharacter);
+	if (CombatInterface)
+	{
+		CombatInterface->Execute_Attack(TPCharacter);
+	}
+}
+
+void AProjPlayerController::UpFunc_Implementation()
+{
+	TPCharacter->IsUp = true;
+}
+
+void AProjPlayerController::UpStopFunc_Implementation()
+{
+	TPCharacter->IsUp = false;
+}
+
+void AProjPlayerController::DownFunc_Implementation()
+{
+	TPCharacter->IsDown = true;
+}
+
+void AProjPlayerController::DownStopFunc_Implementation()
+{
+	TPCharacter->IsDown = false;
 }
 
 void AProjPlayerController::SetMappingContext(TArray<TObjectPtr<UInputMappingContext>> InputMappingContexts)

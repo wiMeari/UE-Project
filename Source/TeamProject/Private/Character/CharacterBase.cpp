@@ -3,8 +3,8 @@
 
 #include "Character/CharacterBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "NiagaraComponent.h"
 #include "Component/TPAttributeComponent.h"
+#include "Actor/TPWeapon.h"
 
 // Sets default values
 ACharacterBase::ACharacterBase()
@@ -15,10 +15,17 @@ ACharacterBase::ACharacterBase()
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->SetPlaneConstraintNormal(FVector(1.f, 0.f, 0.f));
 
-	DissolvedEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("DissolvedEffect"));
-	DissolvedEffect->SetupAttachment(GetMesh());
-
 	AttributeComponent = CreateDefaultSubobject<UTPAttributeComponent>(TEXT("AttributeComponent"));
+
+	//WeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponMesh"));
+	//WeaponMesh->SetupAttachment(GetMesh(), TEXT("WeaponSocket"));
+
+	WeaponComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("Weapon"));
+	WeaponComponent->SetupAttachment(GetMesh(), TEXT("WeaponSocket"));
+}
+
+void ACharacterBase::Attack_Implementation()
+{
 }
 
 // Called when the game starts or when spawned
@@ -26,6 +33,8 @@ void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	/*WeaponComponent->SetChildActorClass(WeaponClass);*/
+
 }
 
 // Called every frame

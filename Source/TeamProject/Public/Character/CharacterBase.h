@@ -4,23 +4,34 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interaction/CombatInterface.h"
 #include "CharacterBase.generated.h"
 
 class UNiagaraComponent;
 class UTPAttributeComponent;
+class ATPWeapon;
 
 UCLASS()
-class TEAMPROJECT_API ACharacterBase : public ACharacter
+class TEAMPROJECT_API ACharacterBase : public ACharacter, public ICombatInterface
 {
 	GENERATED_BODY()
 
 public:
 
-	UPROPERTY(VisibleAnywhere	,BlueprintReadWrite)
+	//UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	//TObjectPtr<UStaticMeshComponent> WeaponMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TObjectPtr<UTPAttributeComponent> AttributeComponent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<UNiagaraComponent> DissolvedEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TObjectPtr<UChildActorComponent> WeaponComponent;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ATPWeapon> WeaponClass;
+
+	//UPROPERTY(BlueprintReadOnly)
+	//TObjectPtr<ATPWeapon> WeaponActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float SprintSpeed;
@@ -35,6 +46,7 @@ public:
 	// Sets default values for this character's properties
 	ACharacterBase();
 
+	virtual void Attack_Implementation() override;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
