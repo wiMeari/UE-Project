@@ -44,6 +44,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Direction")
 	TObjectPtr<UInputAction> DownAction;
 
+	UPROPERTY(BlueprintReadWrite, Category = "Move")
+	bool PlayerCanMove = true;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Move")
+	bool PlayerNeedMove;
 
 public:
 	virtual void Tick(float DeltaTime) override;
@@ -81,6 +86,8 @@ protected:
 private:
 
 	void MoveFunc(const FInputActionValue& Value);
+
+	void MoveStopFunc();
 
 	void SprintFunc();
 

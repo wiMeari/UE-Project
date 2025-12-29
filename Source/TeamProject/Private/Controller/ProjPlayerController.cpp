@@ -43,6 +43,7 @@ void AProjPlayerController::SetupInputComponent()
 	UEnhancedInputComponent* EInputComponent = Cast<UEnhancedInputComponent>(InputComponent);
 	check(EInputComponent);
 	EInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AProjPlayerController::MoveFunc);
+	EInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &AProjPlayerController::MoveStopFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AProjPlayerController::SprintFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &AProjPlayerController::SprintStopFunc);
 	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc_Implementation);
@@ -55,6 +56,10 @@ void AProjPlayerController::SetupInputComponent()
 
 void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
 {
+	if (!PlayerCanMove) return;
+
+	PlayerNeedMove = true;
+
 	FVector2D MovementVector = Value.Get<FVector2D>();
 	FRotator YawRotator = FRotator(0.f, GetControlRotation().Yaw, 0.f);
 	FVector ForwardVector = FRotationMatrix(YawRotator).GetUnitAxis(EAxis::X);
@@ -63,6 +68,11 @@ void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
 	{
 		ControllerPawn->AddMovementInput(-ForwardVector, MovementVector.X);
 	}
+}
+
+void AProjPlayerController::MoveStopFunc()
+{
+	PlayerNeedMove = false;
 }
 
 void AProjPlayerController::SprintFunc()
@@ -78,6 +88,8 @@ void AProjPlayerController::SprintStopFunc()
 
 void AProjPlayerController::JumpFunc()
 {
+	if (!PlayerCanMove) return;
+
 	if (GetCharacter())
 	{
 		GetCharacter()->Jump();
