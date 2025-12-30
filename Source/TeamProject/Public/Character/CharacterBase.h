@@ -30,8 +30,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ATPWeapon> WeaponClass;
 
-	//UPROPERTY(BlueprintReadOnly)
-	//TObjectPtr<ATPWeapon> WeaponActor;
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<ATPWeapon> WeaponActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float SprintSpeed;
@@ -47,6 +47,10 @@ public:
 	ACharacterBase();
 
 	virtual void Attack_Implementation() override;
+
+	virtual void GetHit_Implementation(float Damage,const FVector& HitDirection, AActor* Hitter) override;
+		 
+	virtual void Death_Implementation() override;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

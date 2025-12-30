@@ -3,6 +3,7 @@
 
 #include "Character/CharacterBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Component/TPAttributeComponent.h"
 #include "Actor/TPWeapon.h"
 
@@ -15,6 +16,8 @@ ACharacterBase::ACharacterBase()
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->SetPlaneConstraintNormal(FVector(1.f, 0.f, 0.f));
 
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
+
 	AttributeComponent = CreateDefaultSubobject<UTPAttributeComponent>(TEXT("AttributeComponent"));
 
 	//WeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WeaponMesh"));
@@ -26,6 +29,27 @@ ACharacterBase::ACharacterBase()
 
 void ACharacterBase::Attack_Implementation()
 {
+}
+
+void ACharacterBase::GetHit_Implementation(float Damage,const FVector& HitDirection, AActor* Hitter)
+{
+	if (AttributeComponent)
+	{
+		AttributeComponent->ReceiveDamage(Damage);
+		if (AttributeComponent->GetHealth() == 0)
+		{
+			Execute_Death(this);
+		}
+	}
+}
+
+void ACharacterBase::Death_Implementation()
+{
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility, ECollisionResponse::ECR_Ignore);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
+
+	GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	GetMesh()->SetSimulatePhysics(true);
 }
 
 // Called when the game starts or when spawned
