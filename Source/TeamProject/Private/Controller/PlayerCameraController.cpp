@@ -38,15 +38,26 @@ void APlayerCameraController::Tick(float DeltaTime)
 
 	UpdateTargetLocation();
 
-	if (CanFollow)
-	{
-		FVector CameraLocation = PlayerCameraActor->GetActorLocation();
+	
+	
+	FVector CameraLocation = PlayerCameraActor->GetActorLocation();
 
-		FVector InterpLocation = UKismetMathLibrary::VInterpTo(FVector(CameraLocation.X, CameraLocation.Y, 0), FVector(TargetLocation.X, TargetLocation.Y, 0), DeltaTime, XYInterpSpeed);
-		InterpLocation.Z = UKismetMathLibrary::FInterpTo(CameraLocation.Z, TargetLocation.Z, DeltaTime, ZInterpSpeed);
-		
-		PlayerCameraActor->SetActorLocation(InterpLocation);
+	FVector InterpLocation;
+	if (XYCanFollow)
+	{
+		InterpLocation = UKismetMathLibrary::VInterpTo(FVector(CameraLocation.X, CameraLocation.Y, 0), FVector(TargetLocation.X, TargetLocation.Y, 0), DeltaTime, XYInterpSpeed);
 	}
+	else
+	{
+		InterpLocation = CameraLocation;
+	}
+	if (ZCanFollow)
+	{
+		InterpLocation.Z = UKismetMathLibrary::FInterpTo(CameraLocation.Z, TargetLocation.Z, DeltaTime, ZInterpSpeed);
+	}
+	
+	PlayerCameraActor->SetActorLocation(InterpLocation);
+	
 
 	if (PlayerSceneCaptureActor)
 	{

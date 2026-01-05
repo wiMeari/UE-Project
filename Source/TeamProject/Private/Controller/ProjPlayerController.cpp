@@ -32,7 +32,8 @@ void AProjPlayerController::Tick(float DeltaTime)
 
 	if (PlayerCameraController)
 	{
-		PlayerCameraController->CanFollow = CameraCanFollow;
+		PlayerCameraController->XYCanFollow = CameraXYCanFollow;
+		PlayerCameraController->ZCanFollow = CameraZCanFollow;
 	}
 }
 
@@ -46,10 +47,10 @@ void AProjPlayerController::SetupInputComponent()
 	EInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &AProjPlayerController::MoveStopFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AProjPlayerController::SprintFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &AProjPlayerController::SprintStopFunc);
-	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc_Implementation);
-	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc_Implementation);
-	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc_Implementation);
-	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc_Implementation);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc);
 	EInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AProjPlayerController::JumpFunc);
 	EInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, &AProjPlayerController::AttackFunc);
 }
@@ -105,22 +106,22 @@ void AProjPlayerController::AttackFunc()
 	}
 }
 
-void AProjPlayerController::UpFunc_Implementation()
+void AProjPlayerController::UpFunc()
 {
 	TPCharacter->IsUp = true;
 }
 
-void AProjPlayerController::UpStopFunc_Implementation()
+void AProjPlayerController::UpStopFunc()
 {
 	TPCharacter->IsUp = false;
 }
 
-void AProjPlayerController::DownFunc_Implementation()
+void AProjPlayerController::DownFunc()
 {
 	TPCharacter->IsDown = true;
 }
 
-void AProjPlayerController::DownStopFunc_Implementation()
+void AProjPlayerController::DownStopFunc()
 {
 	TPCharacter->IsDown = false;
 }

@@ -30,7 +30,7 @@ ACharacterBase::ACharacterBase()
 void ACharacterBase::Attack_Implementation()
 {
 }
-
+ 
 void ACharacterBase::GetHit_Implementation(float Damage,const FVector& HitDirection, AActor* Hitter)
 {
 	if (AttributeComponent)

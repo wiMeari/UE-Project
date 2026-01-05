@@ -48,7 +48,10 @@ public:
 	float CameraForwardLenght = 1;
 
 	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
-	bool CanFollow = true;
+	bool XYCanFollow = true;
+
+	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
+	bool ZCanFollow = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraProperty")
 	float XYInterpSpeed = 0;

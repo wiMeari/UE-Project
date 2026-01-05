@@ -65,24 +65,15 @@ protected:
 	FVector PlayerLocation;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Camera")
-	bool CameraCanFollow = true;
+	bool CameraXYCanFollow = true;
 
+	UPROPERTY(BlueprintReadWrite, Category = "Camera")
+	bool CameraZCanFollow = true;
 protected:
 	virtual void BeginPlay() override;
 
 	virtual void SetupInputComponent() override;
 
-	UFUNCTION(BlueprintNativeEvent)
-	void UpFunc();
-
-	UFUNCTION(BlueprintNativeEvent)
-	void UpStopFunc();
-
-	UFUNCTION(BlueprintNativeEvent)
-	void DownFunc();
-
-	UFUNCTION(BlueprintNativeEvent)
-	void DownStopFunc();
 private:
 
 	void MoveFunc(const FInputActionValue& Value);
@@ -94,6 +85,14 @@ private:
 	void SprintStopFunc();
 
 	void JumpFunc();
+
+	void UpFunc();
+
+	void UpStopFunc();
+
+	void DownFunc();
+
+	void DownStopFunc();
 
 	void AttackFunc();
 
