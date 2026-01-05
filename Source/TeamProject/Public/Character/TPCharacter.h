@@ -17,7 +17,7 @@ public:
 	TObjectPtr<UNiagaraComponent> DissolvedEffect;
 
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//TObjectPtr<UNiagaraComponent> WeaponDissolvedEffect;
+	//TObjectPtr<UNiagaraComponent> WeaponDissolvedEffect; 
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool IsUp;
@@ -47,6 +47,9 @@ public:
 
 	virtual void Attack_Implementation() override;
 
+	virtual void GetHit_Implementation(float Damage,const FVector& HitDirection, AActor* Hitter) override;
+
+	virtual void Death_Implementation() override;
 protected:
 	virtual void BeginPlay() override;
 

@@ -32,7 +32,8 @@ void AProjPlayerController::Tick(float DeltaTime)
 
 	if (PlayerCameraController)
 	{
-		PlayerCameraController->CanFollow = CameraCanFollow;
+		PlayerCameraController->XYCanFollow = CameraXYCanFollow;
+		PlayerCameraController->ZCanFollow = CameraZCanFollow;
 	}
 }
 
@@ -43,18 +44,23 @@ void AProjPlayerController::SetupInputComponent()
 	UEnhancedInputComponent* EInputComponent = Cast<UEnhancedInputComponent>(InputComponent);
 	check(EInputComponent);
 	EInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AProjPlayerController::MoveFunc);
+	EInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &AProjPlayerController::MoveStopFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AProjPlayerController::SprintFunc);
 	EInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &AProjPlayerController::SprintStopFunc);
-	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc_Implementation);
-	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc_Implementation);
-	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc_Implementation);
-	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc_Implementation);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Triggered, this, &AProjPlayerController::UpFunc);
+	EInputComponent->BindAction(UpAction, ETriggerEvent::Completed, this, &AProjPlayerController::UpStopFunc);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Triggered, this, &AProjPlayerController::DownFunc);
+	EInputComponent->BindAction(DownAction, ETriggerEvent::Completed, this, &AProjPlayerController::DownStopFunc);
 	EInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AProjPlayerController::JumpFunc);
 	EInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, &AProjPlayerController::AttackFunc);
 }
 
 void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
 {
+	if (!PlayerCanMove) return;
+
+	PlayerNeedMove = true;
+
 	FVector2D MovementVector = Value.Get<FVector2D>();
 	FRotator YawRotator = FRotator(0.f, GetControlRotation().Yaw, 0.f);
 	FVector ForwardVector = FRotationMatrix(YawRotator).GetUnitAxis(EAxis::X);
@@ -63,6 +69,11 @@ void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
 	{
 		ControllerPawn->AddMovementInput(-ForwardVector, MovementVector.X);
 	}
+}
+
+void AProjPlayerController::MoveStopFunc()
+{
+	PlayerNeedMove = false;
 }
 
 void AProjPlayerController::SprintFunc()
@@ -78,6 +89,8 @@ void AProjPlayerController::SprintStopFunc()
 
 void AProjPlayerController::JumpFunc()
 {
+	if (!PlayerCanMove) return;
+
 	if (GetCharacter())
 	{
 		GetCharacter()->Jump();
@@ -93,22 +106,22 @@ void AProjPlayerController::AttackFunc()
 	}
 }
 
-void AProjPlayerController::UpFunc_Implementation()
+void AProjPlayerController::UpFunc()
 {
 	TPCharacter->IsUp = true;
 }
 
-void AProjPlayerController::UpStopFunc_Implementation()
+void AProjPlayerController::UpStopFunc()
 {
 	TPCharacter->IsUp = false;
 }
 
-void AProjPlayerController::DownFunc_Implementation()
+void AProjPlayerController::DownFunc()
 {
 	TPCharacter->IsDown = true;
 }
 
-void AProjPlayerController::DownStopFunc_Implementation()
+void AProjPlayerController::DownStopFunc()
 {
 	TPCharacter->IsDown = false;
 }

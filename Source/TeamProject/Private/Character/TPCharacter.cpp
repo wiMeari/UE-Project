@@ -1,10 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "Character/TPCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "NiagaraComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Actor/TPWeapon.h"
 
 ATPCharacter::ATPCharacter()
 {
@@ -28,12 +26,27 @@ ATPCharacter::ATPCharacter()
 
 void ATPCharacter::Attack_Implementation()
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Green, TEXT("ATPCharacter Attack"));
+	Super::Attack_Implementation();
+}
+
+void ATPCharacter::GetHit_Implementation(float Damage,const FVector& HitDirection, AActor* Hitter)
+{
+	Super::GetHit_Implementation(Damage, HitDirection, Hitter);
+}
+
+void ATPCharacter::Death_Implementation()
+{
+	Super::Death_Implementation();
 }
 
 void ATPCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	WeaponActor = Cast<ATPWeapon>(WeaponComponent->GetChildActor());
+	if (WeaponActor)
+	{
+		WeaponActor->SetOwner(this);
+	}
 }
 
 void ATPCharacter::Tick(float DeltaTime)
