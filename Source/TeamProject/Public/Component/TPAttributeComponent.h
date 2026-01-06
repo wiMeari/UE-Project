@@ -23,6 +23,12 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FORCEINLINE float GetMana() const { return Mana; }
 
+	UFUNCTION(BlueprintCallable,BlueprintPure)
+	FORCEINLINE float GetMaxHealth() const { return MaxHealth; }
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FORCEINLINE float GetMaxMana() const { return MaxMana; }
+
 	UFUNCTION(BlueprintCallable)
 	void ReceiveDamage(float DamageAmount);
 
