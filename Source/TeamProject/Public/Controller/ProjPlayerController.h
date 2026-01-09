@@ -38,11 +38,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Skill And Attack")
 	TObjectPtr<UInputAction> AttackAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Direction")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Base")
 	TObjectPtr<UInputAction> UpAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Direction")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Base")
 	TObjectPtr<UInputAction> DownAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Base")
+	TObjectPtr<UInputAction> PauseAction;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Move")
 	bool PlayerCanMove = true;
