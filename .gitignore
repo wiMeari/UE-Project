@@ -19,4 +19,8 @@ Build
 *.VC.opendb
 *.VC.opendb-shm
 *.VC.opendb-wal
-*.VC.opendb-lock
+*.VC.opendb-lockBinaries/
+Saved/
+*.dll
+*.exp
+*.pdb
