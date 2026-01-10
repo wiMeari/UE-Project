@@ -8,6 +8,7 @@
 #include "GameFramework\CharacterMovementComponent.h"
 #include "Interaction/CombatInterface.h"
 #include "Character/TPCharacter.h"
+#include "Component/TPAttributeComponent.h"
 
 void AProjPlayerController::BeginPlay()
 {
@@ -80,7 +81,14 @@ void AProjPlayerController::MoveStopFunc()
 void AProjPlayerController::SprintFunc()
 {
 	//TPCharacter->GetMovementComponent()->Walk
-	TPCharacter->IsSprint = true;
+	if (TPCharacter->AttributeComponent->GetStamina() > 0)
+	{
+		TPCharacter->IsSprint = true;
+	}
+	else
+	{
+		TPCharacter->IsSprint = false;
+	}
 }
 
 void AProjPlayerController::SprintStopFunc()

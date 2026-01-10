@@ -20,5 +20,7 @@ public:
 	//static FVector CalcAnotherSceneLocation(FVector CurrentLocation, float height);
 	UFUNCTION(BlueprintCallable, Category = "TPFunctionLibrary")
 	static UAnimMontage* SelectMontageFromMontageArray(TArray<UAnimMontage*> MontageArray, bool& IsNotNull);
+
+
 };
 

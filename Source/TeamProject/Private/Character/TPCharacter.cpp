@@ -4,6 +4,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Actor/TPWeapon.h"
 #include "Component/TPAttributeComponent.h"
+#include "Components/CapsuleComponent.h"
 
 ATPCharacter::ATPCharacter()
 {
@@ -51,13 +52,22 @@ void ATPCharacter::BeginPlay()
 	}
 }
 
+void ATPCharacter::PlayerResurrection_Implementation()
+{
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility, ECollisionResponse::ECR_Block);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Block);
+
+	GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	GetMesh()->SetSimulatePhysics(false);
+}
+
 void ATPCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 	if (GetCharacterMovement())
 	{
-		if (IsSprint && AttributeComponent ->GetStamina() > 0)
+		if (IsSprint)
 		{
 			GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
 		}
