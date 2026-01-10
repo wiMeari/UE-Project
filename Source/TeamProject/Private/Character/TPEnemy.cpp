@@ -37,6 +37,8 @@ void ATPEnemy::BeginPlay()
 void ATPEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (IsDeath) return;
+	if (!CanMove) return;
 	if (IsChase)
 	{
 		ChaseState();
@@ -119,6 +121,8 @@ void ATPEnemy::GetHit_Implementation(float Damage,const FVector& HitDirection, A
 void ATPEnemy::Death_Implementation()
 {
 	Super::Death_Implementation();
+	//UE_LOG(LogTemp, Warning, TEXT("Enemy Death"));
+	IsDeath = true;
 }
 
 void ATPEnemy::SeachSphereBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)

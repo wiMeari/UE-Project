@@ -3,6 +3,7 @@
 #include "NiagaraComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Actor/TPWeapon.h"
+#include "Component/TPAttributeComponent.h"
 
 ATPCharacter::ATPCharacter()
 {
@@ -37,6 +38,7 @@ void ATPCharacter::GetHit_Implementation(float Damage,const FVector& HitDirectio
 void ATPCharacter::Death_Implementation()
 {
 	Super::Death_Implementation();
+	//UE_LOG(LogTemp, Warning, TEXT("Character Death"));
 }
 
 void ATPCharacter::BeginPlay()
@@ -55,7 +57,7 @@ void ATPCharacter::Tick(float DeltaTime)
 
 	if (GetCharacterMovement())
 	{
-		if (IsSprint)
+		if (IsSprint && AttributeComponent ->GetStamina() > 0)
 		{
 			GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
 		}

@@ -19,9 +19,9 @@ void UTPAttributeComponent::ReceiveDamage(float DamageAmount)
 	Health = FMath::Clamp(Health - DamageAmount, 0.0f, MaxHealth);
 }
 
-void UTPAttributeComponent::UseMana(float ManaCost)
+void UTPAttributeComponent::UseStamina(float ManaCost)
 {
-	Mana = FMath::Clamp(Mana - ManaCost, 0.0f, MaxMana);
+	Stamina = FMath::Clamp(Stamina - ManaCost, 0.0f, MaxStamina);
 }
 
 // Called when the game starts

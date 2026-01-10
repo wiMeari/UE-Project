@@ -21,19 +21,19 @@ public:
 	FORCEINLINE float GetHealth() const { return Health; }
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
-	FORCEINLINE float GetMana() const { return Mana; }
+	FORCEINLINE float GetStamina() const { return Stamina; }
 
 	UFUNCTION(BlueprintCallable,BlueprintPure)
 	FORCEINLINE float GetMaxHealth() const { return MaxHealth; }
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
-	FORCEINLINE float GetMaxMana() const { return MaxMana; }
+	FORCEINLINE float GetMaxStamina() const { return MaxStamina; }
 
 	UFUNCTION(BlueprintCallable)
 	void ReceiveDamage(float DamageAmount);
 
 	UFUNCTION(BlueprintCallable)
-	void UseMana(float ManaCost);
+	void UseStamina(float ManaCost);
 
 protected:
 	virtual void BeginPlay() override;
@@ -46,9 +46,9 @@ private:
 	float MaxHealth;
 
 	UPROPERTY(EditAnywhere, Category = "Attribute")
-	float Mana;
+	float Stamina;
 
 	UPROPERTY(EditAnywhere, Category = "Attribute")
-	float MaxMana;
+	float MaxStamina;
 		
 };

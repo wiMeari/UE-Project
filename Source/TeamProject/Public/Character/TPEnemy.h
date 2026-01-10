@@ -22,6 +22,12 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Combat")
 	bool IsChase = false;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool CanMove = true;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool IsDeath = false;
+
 	ATPEnemy();
 
 	virtual void Tick(float DeltaTime) override;

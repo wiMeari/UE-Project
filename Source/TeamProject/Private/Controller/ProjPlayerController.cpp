@@ -21,6 +21,7 @@ void AProjPlayerController::BeginPlay()
 	if (TPCharacter != nullptr)
 	{
 		PlayerCameraController->PlayerLocation = PlayerLocation = TPCharacter->GetActorLocation();
+		PlayerCameraController->BeginPlayLocation = PlayerLocation;
 	}
 }
 
@@ -58,7 +59,7 @@ void AProjPlayerController::SetupInputComponent()
 void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
 {
 	if (!PlayerCanMove) return;
-
+	if (PlayerIsDeath) return;
 	PlayerNeedMove = true;
 
 	FVector2D MovementVector = Value.Get<FVector2D>();
@@ -67,7 +68,7 @@ void AProjPlayerController::MoveFunc(const FInputActionValue& Value)
 
 	if (APawn* ControllerPawn = GetPawn<APawn>())
 	{
-		ControllerPawn->AddMovementInput(-ForwardVector, MovementVector.X);
+		ControllerPawn->AddMovementInput(ForwardVector, MovementVector.X);
 	}
 }
 
@@ -90,7 +91,7 @@ void AProjPlayerController::SprintStopFunc()
 void AProjPlayerController::JumpFunc()
 {
 	if (!PlayerCanMove) return;
-
+	if (PlayerIsDeath) return;
 	if (GetCharacter())
 	{
 		GetCharacter()->Jump();
@@ -99,6 +100,7 @@ void AProjPlayerController::JumpFunc()
 
 void AProjPlayerController::AttackFunc()
 {
+	if (PlayerIsDeath) return;
 	ICombatInterface* CombatInterface = Cast<ICombatInterface>(TPCharacter);
 	if (CombatInterface)
 	{
@@ -108,21 +110,25 @@ void AProjPlayerController::AttackFunc()
 
 void AProjPlayerController::UpFunc()
 {
+	if (PlayerIsDeath) return;
 	TPCharacter->IsUp = true;
 }
 
 void AProjPlayerController::UpStopFunc()
 {
+	if (PlayerIsDeath) return;
 	TPCharacter->IsUp = false;
 }
 
 void AProjPlayerController::DownFunc()
 {
+	if (PlayerIsDeath) return;
 	TPCharacter->IsDown = true;
 }
 
 void AProjPlayerController::DownStopFunc()
 {
+	if (PlayerIsDeath) return;
 	TPCharacter->IsDown = false;
 }
 

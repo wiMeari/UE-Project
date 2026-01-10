@@ -32,6 +32,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Move")
 	TObjectPtr<UInputAction> JumpAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Move")
+	TObjectPtr<UInputAction> RollAction;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Skill And Attack")
 	TObjectPtr<UInputAction> SwitchSenseAction;
 
@@ -49,6 +52,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Move")
 	bool PlayerCanMove = true;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Move")
+	bool PlayerIsDeath = false;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Move")
 	bool PlayerNeedMove;

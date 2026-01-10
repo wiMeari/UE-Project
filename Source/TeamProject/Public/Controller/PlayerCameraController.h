@@ -32,7 +32,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperty")
 	FVector PlayerLocation;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "CameraProperty")
+	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
 	FVector BeginPlayLocation;
 
 	UPROPERTY(BlueprintReadWrite, Category = "CameraProperty")
