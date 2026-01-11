@@ -50,6 +50,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Base")
 	TObjectPtr<UInputAction> PauseAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|Base")
+	TObjectPtr<UInputAction> OpenNoteBook;
+
 	UPROPERTY(BlueprintReadWrite, Category = "Move")
 	bool PlayerCanMove = true;
 
