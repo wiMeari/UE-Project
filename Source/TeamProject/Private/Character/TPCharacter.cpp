@@ -52,6 +52,7 @@ void ATPCharacter::BeginPlay()
 	}
 }
 
+
 void ATPCharacter::PlayerResurrection_Implementation()
 {
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility, ECollisionResponse::ECR_Block);
