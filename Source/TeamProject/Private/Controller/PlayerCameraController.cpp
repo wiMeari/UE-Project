@@ -17,12 +17,15 @@ void APlayerCameraController::BeginPlay()
 	
 	if (PlayerSceneCaptureActor != nullptr)
 	{
-		PlayerSceneCaptureActor->SetActorLabel(FString("PlayerSceneCaptureActor"));
+	#if WITH_EDITOR
+			PlayerSceneCaptureActor->SetActorLabel(FString("PlayerSceneCaptureActor"));
+	#endif
 	}
 
 	if (PlayerCameraActor != nullptr)
 	{
 		PlayerCameraActor->SetActorLocation(BeginPlayLocation);
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("PlayerCameraActor Location: %s"), *PlayerCameraActor->GetActorLocation().ToString()));
 		SetViewTarget(PlayerCameraActor);
 	}
 }
@@ -83,7 +86,9 @@ TObjectPtr<ACameraActor> APlayerCameraController::InitializeActor(TSubclassOf<AC
 	TObjectPtr<ACameraActor> InitialTarget = GetWorld()->SpawnActor<ACameraActor>(TargetClass);
 	if (InitialTarget != nullptr)
 	{
+	#if WITH_EDITOR
 		InitialTarget->SetActorLabel(CameraName);
+	#endif
 		return InitialTarget;
 	}
 	return nullptr;

@@ -18,9 +18,9 @@ void AProjPlayerController::BeginPlay()
 
 	PlayerCameraController = Cast<APlayerCameraController>(PlayerCameraManager);
 	TPCharacter = Cast<ATPCharacter>(GetCharacter());
-	PlayerCameraController->TPCharacter = TPCharacter;
 	if (TPCharacter != nullptr)
 	{
+		PlayerCameraController->TPCharacter = TPCharacter;
 		PlayerCameraController->PlayerLocation = PlayerLocation = TPCharacter->GetActorLocation();
 		PlayerCameraController->BeginPlayLocation = PlayerLocation;
 	}
