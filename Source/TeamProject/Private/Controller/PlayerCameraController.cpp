@@ -25,7 +25,7 @@ void APlayerCameraController::BeginPlay()
 	if (PlayerCameraActor != nullptr)
 	{
 		PlayerCameraActor->SetActorLocation(BeginPlayLocation);
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("PlayerCameraActor Location: %s"), *PlayerCameraActor->GetActorLocation().ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("PlayerCameraActor Location: %s"), *PlayerCameraActor->GetActorLocation().ToString()));
 		SetViewTarget(PlayerCameraActor);
 	}
 }
