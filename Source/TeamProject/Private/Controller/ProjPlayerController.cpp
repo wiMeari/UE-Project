@@ -100,6 +100,8 @@ void AProjPlayerController::JumpFunc()
 {
 	if (!PlayerCanMove) return;
 	if (PlayerIsDeath) return;
+	if (!PlayerCanJump) return;
+
 	if (GetCharacter())
 	{
 		GetCharacter()->Jump();

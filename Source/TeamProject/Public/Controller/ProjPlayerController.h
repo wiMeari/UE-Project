@@ -54,6 +54,9 @@ public:
 	TObjectPtr<UInputAction> OpenNoteBook;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Move")
+	bool PlayerCanJump = true;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Move")
 	bool PlayerCanMove = true;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Move")

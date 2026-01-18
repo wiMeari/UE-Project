@@ -17,6 +17,12 @@ public:
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FORCEINLINE float GetHealthPercent() const { return Health/MaxHealth; }
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FORCEINLINE float GetStaminaPercent() const { return Stamina / MaxStamina; }
+
 	UFUNCTION(BlueprintCallable,BlueprintPure)
 	FORCEINLINE float GetHealth() const { return Health; }
 
